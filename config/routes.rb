@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :items do
+  	collection do
+  		get  :scanner
+  		post :get_barcode
+  		get  :multi_barcode_pdf
+  		post :delete_selected
+  		match 'search' => 'items#search', via: [:get, :post], as: :search
+  	end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +62,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root :to => "home#index"
+
 end
