@@ -33,6 +33,7 @@ gem 'roo-xls'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'bcrypt'
+gem 'bcrypt_pbkdf', '~> 1.0.0.alpha1'
 gem 'whenever', require: false
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

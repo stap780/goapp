@@ -45,6 +45,7 @@ GEM
       execjs
     barby (0.6.6)
     bcrypt (3.1.12)
+    bcrypt_pbkdf (1.0.1.rc1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
@@ -271,6 +272,7 @@ DEPENDENCIES
   acts_as_list
   barby
   bcrypt
+  bcrypt_pbkdf (~> 1.0.0.alpha1)
   bootstrap-sass
   byebug
   cancancan
