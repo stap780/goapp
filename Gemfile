@@ -33,7 +33,9 @@ gem 'roo-xls'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'bcrypt'
-gem 'bcrypt_pbkdf', '~> 1.0.0.alpha1'
+gem 'rbnacl', '< 5.0', :require => false
+gem 'rbnacl-libsodium', :require => false
+gem 'bcrypt_pbkdf', '< 2.0', :require => false
 gem 'whenever', require: false
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
