@@ -51,7 +51,7 @@ gem 'quiet_assets'
 gem 'cancancan'
 gem 'unicorn'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.20'
 gem 'postgres_ext'
 
 group :development, :test do

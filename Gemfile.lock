@@ -141,7 +141,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    pg (1.1.4)
+    pg (0.21.0)
     pg_array_parser (0.0.9)
     postgres_ext (3.0.1)
       activerecord (~> 4.0)
@@ -297,7 +297,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0.5)
   nokogiri
   paperclip
-  pg
+  pg (~> 0.20)
   postgres_ext
   quiet_assets
   rails (= 4.2.5.2)
