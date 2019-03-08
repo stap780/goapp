@@ -92,6 +92,7 @@ GEM
       delayed_job (>= 3.0, < 5)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    ed25519 (1.2.4)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.10.0)
@@ -298,6 +299,7 @@ DEPENDENCIES
   combine_pdf
   daemons
   delayed_job_active_record
+  ed25519 (~> 1.2, >= 1.2.4)
   jbuilder (~> 2.0)
   jquery-fileupload-rails
   jquery-rails

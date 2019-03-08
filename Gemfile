@@ -37,6 +37,7 @@ gem 'bcrypt'
 gem 'rbnacl', '< 5.0', :require => false
 gem 'rbnacl-libsodium', :require => false
 gem 'bcrypt_pbkdf', '< 2.0', :require => false
+gem 'ed25519', '~> 1.2', '>= 1.2.4'
 gem 'whenever', require: false
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
