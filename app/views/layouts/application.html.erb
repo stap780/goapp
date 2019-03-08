@@ -1,14 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Goapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Goapp</title>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<%= csrf_meta_tags %>
 </head>
 <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="<%= root_path %>">Goapp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<%= yield %>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+        <a class="nav-link" href="<%= root_path %>">Главная</a>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(items_path) %>">
+        <%= link_to 'Товары', items_path, {:class=> 'nav-link'} %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(users_path) %>">
+        <%= link_to 'Пользователи', users_path, {:class=> 'nav-link'} %>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="#">Настройки</a>
+      </li>
+    </ul>
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></a>
+				<div class="dropdown-menu header-serach" x-placement="bottom-start">
+				<form class="form-inline my-2 my-lg-0">
+				  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+				  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+				</form>
+				</div>
+		</li>
+		<li class="nav-item  dropdown">
+		<% if current_user %>
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_user.email %> <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu dropdown-user">
+								<li class="divider"></li>
+								<li><%= link_to "Выйти", logout_path %></li>
+						</ul><!-- /.dropdown-user -->
+		 <% end %>
+				</li>
+		</ul>
+  </div>
+</nav>
 
+	<main role="main" class="container-fluid">
+		 <div class="my-3 p-0">
+		    <%= yield %>
+		 </div>
+	</main><!-- content -->
+
+	<footer class=" footer bg-dark text-white mt-4">
+	  <div class="container-fluid">
+		  <div class="row">
+	    <ul class="nav justify-content-cente">
+		    <li class="nav-item"><%= link_to "Ketago", "http://www.ketago.com", {:target => '_blank', class: 'nav-link' }%></li>
+		    <li class="nav-item"><%= link_to "Email", "info@ketago.com", {:target => '_blank', class: 'nav-link' } %></li>
+	    </ul>
+		  </div>
+	  </div>
+	</footer>
 </body>
 </html>

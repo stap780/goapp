@@ -12,4 +12,40 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
+//= require bootstrap
+//= require bootstrap-sprockets
+//= require cocoon
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require jquery.ui.touch-punch
 //= require_tree .
+
+
+$(document).ready(function(){
+
+			$("a[rel~=popover], .has-popover").popover();
+		  $("a[rel~=tooltip], .has-tooltip").tooltip();
+      $('.dropdown-toggle').dropdown();
+
+			$('[data-toggle="popover"]').popover({
+			container: 'body'
+			});
+
+			$(".alert" ).fadeOut(5000);
+
+		$('#selectAll').click(function(){
+		  if (this.checked){
+		    $(':checkbox').each(function(){
+		      this.checked = true;
+		    });
+		  } else {
+		    $(':checkbox').each(function(){
+		      this.checked = false;
+		    });
+		  }
+		});
+
+
+});

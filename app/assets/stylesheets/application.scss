@@ -10,6 +10,31 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
  */
+@import "jquery-ui";
+@import "bootstrap";
+
+
+.main-content {
+  margin-top: 40px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+.header-serach {
+  position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);
+}
+.enter-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

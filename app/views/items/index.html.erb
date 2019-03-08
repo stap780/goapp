@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
-
-<table>
+<h1>Товары</h1>
+<p><%= link_to 'Добавить', new_item_path %></p>
+<div class="table-responsive">
+<table class="table table-hover table-condensed table-sm">
   <thead>
-    <tr>
+    <tr class="bg-light">
       <th>Sku</th>
       <th>Barcode</th>
       <th>Title</th>
@@ -12,30 +13,25 @@
       <th>Quantity</th>
       <th>Costprice</th>
       <th>Price</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.sku %></td>
+        <td><%= link_to item.sku , item %></td>
         <td><%= item.barcode %></td>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
         <td><%= item.quantity %></td>
         <td><%= item.costprice %></td>
         <td><%= item.price %></td>
-        <td><%= item.user_id %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_item_path(item) %></td>
+        <td><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+</div>

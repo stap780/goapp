@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+
+  get 'password_resets/new'
+
+  get 'signup', to: 'users#newuser', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :password_resets
+  resources :sessions
+  resources :users
   resources :homes
   resources :items do
   	collection do

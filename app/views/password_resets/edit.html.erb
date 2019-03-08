@@ -1,0 +1,24 @@
+<style>
+	body {
+		background-color: #f5f5f5;
+	}
+.navbar{
+	display: none;
+}
+.footer{
+	display: none;
+}
+</style>
+<%= simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+			<div class="enter-form text-center">
+			<h1 class="h3 mb-3 font-weight-normal">Смена пароля</h1>
+	  <div class="form-inputs">
+	    <%= f.input :password, label: 'Новый пароль' %>
+	    <%= f.input :password_confirmation, label: 'Подтверждение нового пароль' %>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit, 'Сменить пароль', class: 'btn btn-success btn-lg btn-submit btn-block'  %>
+	  </div>
+	</div>
+<% end %>

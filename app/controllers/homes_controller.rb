@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /homes
   # GET /homes.json
   def index
