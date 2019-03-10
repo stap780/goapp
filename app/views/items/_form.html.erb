@@ -1,6 +1,7 @@
 <%= simple_form_for @item, :html=> { class: 'row' } do |f| %>
 <%= f.error_notification %>
 <div class="col-md-6">
+    <%= f.input :user_id , as: :hidden, :input_html => { :value => current_user.id }%>
     <%= f.input :sku , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
     <%= f.input :barcode , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
     <%= f.input :title , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
