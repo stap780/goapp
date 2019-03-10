@@ -37,8 +37,10 @@
 
 <p>
   <strong>User:</strong>
-  <%= @item.user_id %>
+  <%= @item.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<div class="col-md-3 btn-group my-3" role="group">
+  <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-success' %> |
+  <%= link_to 'Назад', url_for(:back), class: 'btn btn-info' %>
+</div>
