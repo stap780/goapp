@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
+  # User::Roles
+  # The available roles
+  ROLES = %i[admin manager]
+
 end

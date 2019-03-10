@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @permcl = Permcl.all.order(:id)
+	  @permcl_action = PermclAction.all.order(:id)
   end
 
   # POST /users
@@ -44,6 +46,33 @@ end
   def update
     respond_to do |format|
       if @user.update(user_params)
+		params[:permissions].each do |k,v|
+			user_id = v[:user_id]
+			permcl_id = v[:permcl_id]
+			permcl_action_ids = v[:permcl_action_ids]
+			permcl_action_ids.each do |permcl_action_id_k, permcl_action_id_v|
+			action_value = permcl_action_id_v[:action_value]
+			@permission = Permission.where(user_id: user_id, permcl_id: permcl_id, permcl_action_id: permcl_action_id_k)
+				if @permission.present?
+				puts 'запись о доступе есть'
+				puts v
+				    if action_value == '1'
+				  	#если стоит 1 (то разрешать доступ), то правило нужно сохранить
+				  	else
+				  	 	@permission.each do |p|
+					  		p.delete
+					  	end
+					end
+				else
+					puts 'запись о доступе отсутствует'
+					if action_value == '1'
+						#если стоит 1 (то разрешать доступ), то правило нужно создать
+						Permission.create(user_id: user_id, permcl_id: permcl_id, permcl_action_id: permcl_action_id_k)
+					end
+				end
+			end
+		end
+
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -71,6 +100,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :password_digest, :auth_token, :password_reset_token, :password_reset_sent_at)
+      params.require(:user).permit(:email, :password, :password_confirmation, :password_digest, :auth_token, :password_reset_token, :password_reset_sent_at, :role, :permission_attributes => [:user_id, :permcl_id, :permcl_action_id, :id, :_destroy])
     end
 end

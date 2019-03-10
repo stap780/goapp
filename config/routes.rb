@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  resources :permcls
+  resources :permcl_actions
+  resources :permissions
   get 'password_resets/new'
 
   get 'signup', to: 'users#newuser', as: 'signup'
