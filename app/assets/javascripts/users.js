@@ -1,5 +1,5 @@
 $(document).ready(function() {
-console.log('load');
+console.log('load users');
 	// отображение блока со статусами при загрузке
 		if( $('#user_role option:selected').val() === 'manager' ){
 			$('.permission_data').css('display','block');
@@ -35,11 +35,13 @@ console.log('load');
 						$('.action-id-'+permcl_id_json+'-'+permcl_action_id_json+' :checkbox').prop('checked', true);
   				}
 				if(data.status === 'ok'){
-					//console.log(data.message);
+					console.log(data.message);
 				}
 		  },
 		  error: function(jqXHR, textStatus, errorThrown){
 			  //console.log(jqXHR);
+				console.log(textStatus);
+				console.log(errorThrown);
 		  }
 		})
 
