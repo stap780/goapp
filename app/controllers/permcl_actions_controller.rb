@@ -1,4 +1,5 @@
 class PermclActionsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_permcl_action, only: [:show, :edit, :update, :destroy]
 
   # GET /permcl_actions
