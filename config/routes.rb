@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   		match 'search' => 'items#search', via: [:get, :post], as: :search
   	end
   end
+
+  root :to => "homes#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -77,6 +80,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root :to => "homes#index"
 
 end
