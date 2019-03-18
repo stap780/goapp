@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  skip_load_and_authorize_resource :only => [:newuser, :create]
+  skip_load_and_authorize_resource :only => [:newuser, :create] 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
