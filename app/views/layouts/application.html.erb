@@ -9,6 +9,7 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+	<% unless current_page?(login_path)%> <% unless current_page?(sessions_path) %><% unless current_page?(signup_path) %>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="<%= root_path %>">Goapp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,13 +55,24 @@
 		</ul>
   </div>
 </nav>
+<% end %>	<% end %><% end %>
 
 	<main role="main" class="container-fluid">
 		 <div class="my-3 p-0">
+			  <% unless current_page?(login_path)%> <% unless current_page?(sessions_path) %>
+			 <% flash.each do |key, value| %>
+ 				<%= content_tag(:div, class: "alert alert-#{key} alert-dismissable") do %>
+ 				<%= value %>
+ 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+ 				<% end %>
+ 			<% end %>
+				<% end %>	<% end %>
+
 		    <%= yield %>
 		 </div>
 	</main><!-- content -->
 
+<% unless current_page?(login_path)%> <% unless current_page?(sessions_path) %><% unless current_page?(signup_path) %>
 	<footer class=" footer bg-dark text-white mt-4">
 	  <div class="container-fluid">
 		  <div class="row">
@@ -71,5 +83,6 @@
 		  </div>
 	  </div>
 	</footer>
+	<% end %>	<% end %><% end %>
 </body>
 </html>

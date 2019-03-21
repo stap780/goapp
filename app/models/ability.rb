@@ -7,36 +7,21 @@ class Ability
 		alias_action :edit, :to => :update
     # Define abilities for the passed in user here. For example:
       user ||= User.new # guest user (not logged in)
+      # puts user.role
       if user.role == "admin"
         can :manage, :all
-      else
+      end
+      if user.role == "manager"
         #can :read, :all
 				user.permissions.each do |permission|
-				  if permission.subject_class == "all" # это из примера в интернете (там чуть другая организация коллекции названия моделей)
-				    can permission.action.to_sym, permission.subject_class.to_sym
-				  else
-# Это пример логики
-# 				  	if user.id == 10
-# 					   can :manage, Okrug
-# 					   can :read, Driver
-# 					   can :create, Driver
-# 					  end
-      puts cname
-# Это первая версия
-# 						if permission.subject_class.constantize == cname
-# 						can :read, :all
-# 						end
-# 						if permission.value == true
-# 				    	can permission.action.to_sym, permission.subject_class.constantize
-# 				    end
-# Это вторая версия
-      puts permission.permcl.systitle
-      puts permission.permcl_action.title
-						if permission.permcl.systitle.constantize == cname
-						can :read, :all
-						end
-				    can permission.permcl_action.title.to_sym, permission.permcl.systitle.constantize
-					end
+          puts 'cname - '+"#{cname}"
+          puts 'permission.permcl.systitle - '+"#{permission.permcl.systitle}"
+          puts 'permission.permcl_action.title - '+"#{permission.permcl_action.title}"
+          if permission.permcl.systitle.constantize == cname
+            can permission.permcl_action.title.to_sym, permission.permcl.systitle.constantize
+          else
+            can :read, :all
+          end
       	end
       end
     #
