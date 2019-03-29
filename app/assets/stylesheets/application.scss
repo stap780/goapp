@@ -38,3 +38,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.alert {
+  position:fixed;
+      top: 60px;
+      right: 0px;
+      width: 30%;
+      z-index:9999;
+      border-radius:6px;
+      border: 1px solid black;
+}
