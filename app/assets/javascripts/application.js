@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require bootstrap
+//= require popper
 //= require bootstrap-sprockets
 //= require cocoon
 //= require jquery-fileupload/basic

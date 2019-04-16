@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @permcl = Permcl.all.order(:id)
+	  @permcl_action = PermclAction.all.order(:id)    
   end
 
   def newuser
