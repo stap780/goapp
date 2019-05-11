@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @permcl = Permcl.all.order(:id)
-	  @permcl_action = PermclAction.all.order(:id)    
+	  @permcl_action = PermclAction.all.order(:id)
   end
 
   def newuser
@@ -55,7 +55,7 @@ end
       	if @user.update(user_params)
 
   			puts params[:role]
-  			if params[:role] == 'manager'
+  			if params[:user][:role]  == 'manager'
   			    params[:permissions].each do |k,v|
   					user_id = v[:user_id]
   					permcl_id = v[:permcl_id]

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resources :permcls
   resources :permcl_actions
-  resources :permissions
+  resources :permissions do
+		collection do
+			post :user_permissions
+		end
+  end
   get 'password_resets/new'
 
   get 'signup', to: 'users#newuser', as: 'signup'

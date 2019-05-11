@@ -52,6 +52,13 @@ class PermissionsController < ApplicationController
     end
   end
 
+  def user_permissions
+    @user_permissions = Permission.where(:user => params[:user_id])
+    respond_to do |format|
+        format.json { render :user_permissions, status: :ok, location: @permission }
+      end
+	end
+
   # DELETE /permissions/1
   # DELETE /permissions/1.json
   def destroy
